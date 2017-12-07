@@ -1,2 +1,8 @@
 <h1>This is the EDIT test</h1>
-<a href="" ng-click="homeCtrl.log()">Delete</a>
+<form class="newArticle">
+	<span>Title</span>
+	<input type="text" name="" class="form-control" ng-model="homeCtrl.articleTitle">
+	<span>Body</span>
+	<textarea class="form-control" ng-model="homeCtrl.articleBody"></textarea>
+	<a href="" ng-click="homeCtrl.editArticle()">Edit</a>	
+</form>

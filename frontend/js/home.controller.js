@@ -3,24 +3,29 @@
 	.module('app')
 	.controller('homeController', homeController);
 
-	function homeController(search,$log){
+	function homeController(search,$log,$routeParams,$location){
 
 		var vm = this;
 
 
 		vm.deleteArticle = deleteArticle;
 		vm.getAllArticles = getAllArticles;
-		vm.editableArticle = editableArticle;
-		vm.log = log;
+		vm.editArticle = editArticle;
 
-		function log(){
-			console.log(vm.editableArticleObject);
-		}
+		function editArticle(){
+			vm.jsonArticle = {
+				'title': vm.articleTitle,
+				'body': vm.articleBody
+			}
 
-
-		function editableArticle(article){
-			vm.editableArticleObject = article;
-			console.log(vm.editableArticleObject.title);
+			vm.ArticleId = $routeParams.id;
+			
+			search.editArticle(vm.ArticleId,vm.jsonArticle)
+			.then(function successCallback(data){
+				$location.path('/');
+			}, function errorCallback(error){
+				alert('Something went wrong');	
+			})
 		}
 
 

@@ -11,7 +11,7 @@
 			controllerAs: 'homeCtrl'
 		})
 
-		.when('/edit',{
+		.when('/edit/:id',{
 			templateUrl: 'templates/edit.html',
 			controller: 'homeController',
 			controllerAs: 'homeCtrl'

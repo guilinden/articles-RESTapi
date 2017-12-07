@@ -9,6 +9,17 @@
 		vm.getAllArticles = getAllArticles;
 		vm.createArticle = createArticle;
 		vm.deleteArticle = deleteArticle;
+		vm.editArticle = editArticle;
+
+		function editArticle(id,jsonObject){
+			return $http({
+				method: 'put',
+				url: 'http://localhost:3000/api/v1/articles/' + id,
+				data: jsonObject
+			});
+		}
+		
+
 
 		function deleteArticle(id){
 			return $http({
@@ -16,9 +27,6 @@
 				url: 'http://localhost:3000/api/v1/articles/' + id
 			});
 		}
-
-
-
 
 		function getAllArticles(){
 			return $http({

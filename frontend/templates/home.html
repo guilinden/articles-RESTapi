@@ -1,0 +1,25 @@
+<h1> Articles available </h1>
+<a href="#!/create">Create Article</a>
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Body</th>
+		<th>Delete</th>
+		<th>Edit</th>
+	</tr>
+	<tr ng-repeat="article in homeCtrl.list.data.data">
+		<td>
+			{{article.title}}
+		</td>
+		<td>
+			{{article.body}}
+		</td>
+		<td>
+			<a href="" ng-click="homeCtrl.deleteArticle(article.id)">Delete</a>
+		</td>
+		<td>
+			<a href="#!/edit" ng-click="homeCtrl.editableArticle(article)">Edit</a>
+		</td>
+	</tr>
+
+</table>
